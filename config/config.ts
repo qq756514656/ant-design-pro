@@ -1,14 +1,10 @@
 import { IConfig, IPlugin } from 'umi-types';
+import defaultSettings from './defaultSettings'; // https://umijs.org/config/
 
-import defaultSettings from './defaultSettings';
-// https://umijs.org/config/
 import os from 'os';
 import slash from 'slash2';
 import webpackPlugin from './plugin.config';
-
-const { pwa, primaryColor } = defaultSettings;
-
-// preview.pro.ant.design only do not use in your production ;
+const { pwa, primaryColor } = defaultSettings; // preview.pro.ant.design only do not use in your production ;
 // preview.pro.ant.design 专用环境变量，请不要在你的项目中使用它。
 
 const { ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION, TEST, NODE_ENV } = process.env;
@@ -108,6 +104,31 @@ export default {
       Routes: ['src/pages/Authorized'],
       authority: ['admin', 'user'],
       routes: [
+        {
+          name: 'user-login',
+          path: '/user-login',
+          component: './user-login',
+        },
+        {
+          name: 'table-list',
+          path: '/table-list',
+          component: './table-list',
+        },
+        {
+          name: 'account-settings',
+          path: '/account-settings',
+          component: './account-settings',
+        },
+        {
+          name: 'account-center',
+          path: '/account-center',
+          component: './account-center',
+        },
+        {
+          name: 'workplace',
+          path: '/workplace',
+          component: './workplace',
+        },
         {
           path: '/',
           name: 'welcome',
