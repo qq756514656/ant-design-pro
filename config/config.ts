@@ -25,11 +25,11 @@ const plugins: IPlugin[] = [
         // default true, when it is true, will use `navigator.language` overwrite default
         baseNavigator: true,
       },
-      dynamicImport: {
-        loadingComponent: './components/PageLoading/index',
-        webpackChunkName: true,
-        level: 3,
-      },
+      // dynamicImport: {
+      //   loadingComponent: './components/PageLoading/index',
+      //   webpackChunkName: true,
+      //   level: 3,
+      // },
       pwa: pwa
         ? {
             workboxPluginMode: 'InjectManifest',
@@ -62,12 +62,6 @@ if (isAntDesignProPreview) {
     'umi-plugin-ga',
     {
       code: 'UA-72788897-6',
-    },
-  ]);
-  plugins.push([
-    'umi-plugin-pro',
-    {
-      serverUrl: 'https://ant-design-pro.netlify.com',
     },
   ]);
 }
@@ -115,6 +109,13 @@ export default {
               name: 'welcome',
               icon: 'smile',
               component: './Welcome',
+            },
+            {
+              path: '/admin',
+              name: 'admin',
+              icon: 'crown',
+              component: './Admin',
+              authority: ['admin'],
             },
             {
               component: './404',
