@@ -1,12 +1,9 @@
-import { AnyAction } from 'redux';
-import { MenuDataItem } from '@ant-design/pro-layout';
-import { RouterTypes } from 'umi';
+import { MenuDataItem, Settings as ProSettings } from '@ant-design/pro-layout';
 import { GlobalModelState } from './global';
-import { DefaultSettings as SettingModelState } from '../../config/defaultSettings';
 import { UserModelState } from './user';
-import { LoginModelType } from './login';
+import { StateType } from './login';
 
-export { GlobalModelState, SettingModelState, UserModelState };
+export { GlobalModelState, UserModelState };
 
 export interface Loading {
   global: boolean;
@@ -23,18 +20,11 @@ export interface Loading {
 export interface ConnectState {
   global: GlobalModelState;
   loading: Loading;
-  settings: SettingModelState;
+  settings: ProSettings;
   user: UserModelState;
-  login: LoginModelType;
+  login: StateType;
 }
 
 export interface Route extends MenuDataItem {
   routes?: Route[];
-}
-
-/**
- * @type T: Params matched in dynamic routing
- */
-export interface ConnectProps<T = {}> extends Partial<RouterTypes<Route, T>> {
-  dispatch?<K = any>(action: AnyAction): K;
 }
